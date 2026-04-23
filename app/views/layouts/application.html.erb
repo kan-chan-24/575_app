@@ -14,11 +14,16 @@
       <h1>575</h1>
       <nav>
         <ul>
-          <li><a href="">top</a></li>
-          <li><a href="">rogin</a></li>
+          <%= link_to "トップページ", "/" %>
+          <%= link_to "ログイン", "/" %>
+          <%= link_to "一覧", posts_path %>
+          <%= link_to "新規投稿", new_post_path %>
         </ul>
       </nav>
     </header>
+    <% if notice %>
+      <div class="alert alert-success"><%= notice %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
