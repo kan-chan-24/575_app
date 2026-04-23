@@ -1,0 +1,21 @@
+<h1>投稿一覧</h1>
+
+<% if @posts.present? %>
+    <div class="posts-list">
+        <% @posts.each do |post| %>
+            <div class="post-item mb-4 p-3 border rounded">
+                <div class="post-content">
+                    <p><strong>上の句:</strong> <%= post.top %></p>
+                    <p><strong>中の句:</strong> <%= post.middle %></p>
+                    <p><strong>下の句:</strong> <%= post.bottom %></p>
+                </div>
+            </div>
+            <div class="post-meta text-muted">
+                <small>投稿日時: <%= post.created_at.strftime('%Y年%m月%d日 %H:%M') %></small>
+            </div>
+            <%= button_to "削除", post, method: :delete, data: { turbo_confirm: '本当に削除しますか?' }, class: 'btn btn-danger btn-sm' %>
+        <% end %>
+    </div>
+<% else %>
+    <p>まだ投稿がありません。</p>
+<% end %>

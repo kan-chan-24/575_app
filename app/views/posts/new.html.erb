@@ -1,0 +1,22 @@
+<h1>新規作成</h1>
+
+<%= form_with(model: @post) do |form| %>
+    <div>
+    <%= form.label :top, '上の句', style: "display: block" %>
+    <%= form.text_field :top %>
+    </div>
+
+    <div>
+    <%= form.label :middle, '中の句', style: "display: block" %>
+    <%= form.text_field :middle %>
+    </div>
+
+    <div>
+    <%= form.label :bottom, '下の句', style: "display: block" %>
+    <%= form.text_field :bottom %>
+    </div>
+
+    <div>
+        <%= form.submit '投稿する' %>
+    </div>
+<% end %>
