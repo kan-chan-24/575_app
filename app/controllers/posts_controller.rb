@@ -3,11 +3,15 @@ class PostsController < ApplicationController
     @posts = Post.all.order(created_at: :desc)
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def new
     @post = Post.new
   end
 
-  def show
+  def edit
     @post = Post.find(params[:id])
   end
 
@@ -17,6 +21,16 @@ class PostsController < ApplicationController
       redirect_to posts_path, notice: '投稿が作成されました'
     else
       render :new  # 保存失敗時は new ビューを再表示
+    end
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    
+    if @post.update(post_params)
+      redirect_to @post, notice: '投稿を更新しました'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 

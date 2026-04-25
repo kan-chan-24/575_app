@@ -1,0 +1,32 @@
+<%= form_with(model: post) do |form| %>
+    <!--エラーメッセージ処理-->
+  <% if post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :top, "上の句", class: "form-label" ,style: "display:block" %>
+    <%= form.text_field :top, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :middle, "中の句", class: "form-label" ,style: "display:block" %>
+    <%= form.text_field :middle, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :bottom, "下の句", class: "form-label" ,style: "display:block" %>
+    <%= form.text_field :bottom, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.submit '投稿する' ,class: "btn btn-primary"%>
+  </div>
+<% end %>
