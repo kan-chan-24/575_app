@@ -1,19 +1,17 @@
 <h1>投稿一覧</h1>
 
 <% if @posts.present? %>
-    <div class="posts-list">
+    <div class="tanzaku-container">
         <% @posts.each do |post| %>
-            <div class="post-item mb-4 p-3 border rounded">
-                <div class="post-content">
-                    <p><strong>上の句:</strong> <%= post.top %></p>
-                    <p><strong>中の句:</strong> <%= post.middle %></p>
-                    <p><strong>下の句:</strong> <%= post.bottom %></p>
+            <%= link_to post, class: "tanzaku-link" do %>
+                <div class="tanzaku">
+                    <div class="tanzaku-text">
+                        <p><%= post.top %></p>
+                        <p><%= post.middle %></p>
+                        <p><%= post.bottom %></p>
+                    </div>
                 </div>
-            </div>
-            <div class="post-meta text-muted">
-                <small>投稿日時: <%= post.created_at.strftime('%Y年%m月%d日 %H:%M') %></small>
-            </div>
-            <%= link_to "詳細", post %>
+            <% end %>
         <% end %>
     </div>
 <% else %>

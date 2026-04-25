@@ -1,19 +1,92 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
- ul li{
-    list-style: none;
-    padding-left: 0; 
- }
+/* ーーーーーresetーーーーー */
+/* リンクのデフォルトスタイルをリセット */
+.tanzaku-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+.tanzaku-text p {
+  margin: 0;
+  padding: 0;
+}
+ul li{
+   list-style: none;
+   padding-left: 0; 
+}
+
+/* ーーーーーhtml全体ーーーーー */
+html {
+   font-family: "Hina Mincho", serif;
+   font-weight: 400;
+   font-style: normal;
+   height: 100%;
+   margin: 0;
+   padding: 0; 
+}
+body {
+   background: 
+   linear-gradient(to top, rgb(255, 255, 255, 0.3) 0%, 
+   rgba(250, 250, 250, 0.5) 100%),
+   url('/assets/background.jpg');  /* 背景画像指定 */
+
+   background-size: cover; /* 画面いっぱいに表示 */
+   background-position: center; /* 中央配置 */
+   background-repeat: no-repeat; /* 繰り返しなし */
+   background-attachment: fixed; /* スクロールしても固定 */
+}
+ /* ーーーーーindexーーーーー */
+ /* 短冊のコンテナ */
+ .tanzaku-container {
+   display: flex;
+   gap: 40px;
+   padding: 0 20px;
+   flex-wrap: wrap;
+}
+/* 短冊本体 */
+.tanzaku {
+   min-width: 120px;
+   height: 350px;
+   background: linear-gradient(to bottom, #f5f5dc 0%, #e8e8d0 100%); /*ちょっとグラデ*/
+   border-radius: 5px 5px 0 0;
+   box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+   padding: 30px 20px;
+   position: relative;
+   /* 短冊の質感を出す */
+   border: 1px solid #d4d4c0;
+   writing-mode: vertical-rl; /*縦書き*/
+   text-orientation: upright; /*文字の向きを縦に矯正*/
+}
+/* 短冊の上部に穴を追加（紐を通す部分） */
+.tanzaku::before {
+   content: '';
+   position: absolute;
+   top: 10px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 8px;
+   height: 8px;
+   background: #fff;
+   border: 2px solid #999;
+   border-radius: 50%;
+   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+/*ホバーの動き*/
+.tanzaku:hover {
+   transform: translateY(-5px);
+   box-shadow: 
+      0 8px 12px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+   transition: all 0.3s ease;
+}
+/* 縦書きテキスト */
+.tanzaku-text {
+   writing-mode: vertical-rl; /*縦書き*/
+   text-orientation: upright; /*文字の向きを縦に矯正*/
+   font-size: 18px;
+   line-height: 2.3;
+   color: #333;
+   margin: 10px auto 0; /* 左右中央配置 */
+   height: 70%;
+}
