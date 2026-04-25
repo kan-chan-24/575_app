@@ -1,10 +1,10 @@
-<h1>投稿詳細</h1>
+<h1>この句について</h1>
 
 <%= render @post %>
 
 <div>
-  <%= link_to "編集", edit_post_path(@post) %>
-  <%= link_to "一覧", posts_path %>
+  <%= link_to "詠みなおす", edit_post_path(@post) %>
+  <%= link_to "みんなの一句", posts_path %>
 
-  <%= button_to "削除", @post, method: :delete %>
+  <%= button_to "句を捨てる", @post, method: :delete %>
 </div>

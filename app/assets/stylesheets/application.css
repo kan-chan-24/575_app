@@ -34,7 +34,67 @@ body {
    background-repeat: no-repeat; /* 繰り返しなし */
    background-attachment: fixed; /* スクロールしても固定 */
 }
+header{
+   display: flex; /* Flexboxを使用 */
+   justify-content: space-between; /* 左右に要素を配置 */
+   align-items: center; /* 縦方向中央揃え */
+   padding: 15px 50px 15px 30px; /* 上下左右の余白 */
+   border-bottom: 1px solid #7c7c7c; /* 下線 */
+   position: sticky; /* スクロールしても固定 */
+   top: 0; /* 上部に固定 */
+   z-index: 100; /* 他の要素より前面に表示 */
+}
+/* サイトタイトルのリンク */
+.site-title-link {
+  text-decoration: none; /* 下線を消す */
+  color: inherit; /* 親要素の色を継承 */
+  cursor: pointer; /* カーソルをポインターに */
+  transition: opacity 0.3s ease; /* ホバー時のアニメーション */
+}
+/* ホバー時のエフェクト */
+.site-title-link:hover {
+  opacity: 0.7; /* 少し薄くする */
+}
+/* ログインのリンク */
+.login-link{
+   text-decoration: none; /* 下線を消す */
+   color: #333; /* リンクの色 */
+}
+
  /* ーーーーーindexーーーーー */
+ /* 新規投稿ボタン（フローティングアクションボタン） */
+.floating-action-button {
+  position: fixed; /* 画面に固定 */
+  bottom: 30px; /* 下から30pxの位置 */
+  right: 30px; /* 右から30pxの位置 */
+  width: 60px; /* ボタンの幅 */
+  height: 60px; /* ボタンの高さ */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* グラデーション背景 */
+  border-radius: 50%; /* 円形にする */
+  display: flex;
+  align-items: center; /* 縦方向中央揃え */
+  justify-content: center; /* 横方向中央揃え */
+  color: #fff; /* アイコンの色 */
+  font-size: 24px; /* アイコンのサイズ */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* 影をつける */
+  transition: all 0.3s ease; /* アニメーション */
+  z-index: 1000; /* 他の要素より前面に表示 */
+  text-decoration: none; /* リンクの下線を消す */
+  cursor: pointer;
+}
+/* ホバー時のエフェクト */
+.floating-action-button:hover {
+  transform: scale(1.1); /* 少し大きくする */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* 影を濃くする */
+}
+/* クリック時のエフェクト */
+.floating-action-button:active {
+  transform: scale(0.95); /* 少し小さくする */
+}
+/* アイコンのスタイル */
+.floating-action-button i {
+  color: #fff;
+}
  /* 短冊のコンテナ */
  .tanzaku-container {
    display: flex;
