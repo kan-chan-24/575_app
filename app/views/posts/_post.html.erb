@@ -1,8 +1,24 @@
-<div class="post-detail">
-  <div class="post-content">
-    <p><strong>上の句:</strong> <%= post.top %></p>
-    <p><strong>中の句:</strong> <%= post.middle %></p>
-    <p><strong>下の句:</strong> <%= post.bottom %></p>
+<div class="tanzaku-content">
+  <div class="tanzaku-line">
+    <div class="tanzaku-label">
+      <div class="tanzaku-input">
+        <p><%= post.top %></p>
+      </div>
+    </div>
+  </div>
+  <div class="tanzaku-line">
+    <div class="tanzaku-label">
+      <div class="tanzaku-input">
+        <p><%= post.middle %></p>
+      </div>
+    </div>
+  </div>
+  <div class="tanzaku-line">
+    <div class="tanzaku-label">
+      <div class="tanzaku-input">
+        <p><%= post.bottom %></p>
+      </div>
+    </div>
   </div>
   <div class="post-meta text-muted">
     <small>投稿日時: <%= post.created_at.strftime('%Y年%m月%d日 %H:%M') %></small>

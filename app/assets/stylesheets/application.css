@@ -1,19 +1,249 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
- ul li{
-    list-style: none;
-    padding-left: 0; 
+/* ーーーーーresetーーーーー */
+/* リンクのデフォルトスタイルをリセット */
+.tanzaku-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+.tanzaku-text p {
+  margin: 0;
+  padding: 0;
+}
+ul li{
+   list-style: none;
+   padding-left: 0; 
+}
+button{
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+   outline: none;
+   padding: 0;
+   appearance: none;
+}
+input {
+	margin: 0;
+	padding: 0;
+	background: none;
+	border: none;
+	border-radius: 0;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+   font-family: "Hina Mincho", serif;
+}
+/* ーーーーーhtml全体ーーーーー */
+html {
+   font-family: "Hina Mincho", serif;
+   font-weight: 400;
+   font-style: normal;
+   height: 100%;
+   margin: 0;
+   padding: 0; 
+}
+body {
+   margin:0;
+   padding:0;
+
+   background: 
+   linear-gradient(to top, rgb(255, 255, 255, 0.3) 0%, 
+   rgba(250, 250, 250, 0.5) 100%),
+   url('/assets/background.jpg');  /* 背景画像指定 */
+
+   background-size: cover; /* 画面いっぱいに表示 */
+   background-position: center; /* 中央配置 */
+   background-repeat: no-repeat; /* 繰り返しなし */
+   background-attachment: fixed; /* スクロールしても固定 */
+}
+header{
+   display: flex; /* Flexboxを使用 */
+   justify-content: space-between; /* 左右に要素を配置 */
+   align-items: center; /* 縦方向中央揃え */
+   background-color: #fff;
+   padding: 5px 50px 5px 30px; /* 上下左右の余白 */
+   background-attachment: fixed; /* スクロールしても固定 */
+   position: sticky; /* スクロールしても固定 */
+   top: 0; /* 上部に固定 */
+   left: 0;
+   right: 0;
+   z-index: 100; /* 他の要素より前面に表示 */
+}
+/* サイトタイトルのリンク */
+.site-title-link {
+  text-decoration: none; /* 下線を消す */
+  color: inherit; /* 親要素の色を継承 */
+  cursor: pointer; /* カーソルをポインターに */
+  transition: opacity 0.2s ease; /* ホバー時のアニメーション */
+}
+/* ホバー時のエフェクト */
+.site-title-link:hover {
+  opacity: 0.5; /* 少し薄くする */
+}
+/* ログインのリンク */
+.login-link{
+   text-decoration: none; /* 下線を消す */
+   color: #333; /* リンクの色 */
+}
+ /* ーーーーーtopーーーーー */
+ /* トップページ全体 */
+.intro-container{
+   writing-mode: vertical-rl; /* 縦書き（右から左） */
+   margin: 50px auto;        /* ブロック全体を中央寄せ */
+}
+.introduction p{
+   text-indent: 2em; /* 2文字分の字下げ */
+}
+.to-posts{
+   text-decoration: none; /* 下線を消す */
+   color: inherit; /* 親要素の色を継承 */
+
+   display: inline-block;
+   background: linear-gradient(to bottom, #f5f5dc 0%, #e8e8d0 100%); /*ちょっとグラデ*/
+   border-radius: 5px 5px 0 0;
+   box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+   padding:7px 0;
+   border: 1px solid #d4d4c0;
+
+   cursor: pointer; /* カーソルをポインターに */
+   transition: opacity 0.2s ease; /* ホバー時のアニメーション */
+}
+.to-posts:hover {
+  opacity: 0.5; /* 少し薄くする */
+}
+ /* ーーーーーindexーーーーー */
+ /* 新規投稿ボタン（フローティングアクションボタン） */
+.floating-action-button {
+  position: fixed; /* 画面に固定 */
+  bottom: 30px; /* 下から30pxの位置 */
+  right: 30px; /* 右から30pxの位置 */
+  width: 60px; /* ボタンの幅 */
+  height: 60px; /* ボタンの高さ */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* グラデーション背景 */
+  border-radius: 50%; /* 円形にする */
+  display: flex;
+  align-items: center; /* 縦方向中央揃え */
+  justify-content: center; /* 横方向中央揃え */
+  color: #fff; /* アイコンの色 */
+  font-size: 24px; /* アイコンのサイズ */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* 影をつける */
+  transition: all 0.3s ease; /* アニメーション */
+  z-index: 1000; /* 他の要素より前面に表示 */
+  text-decoration: none; /* リンクの下線を消す */
+  cursor: pointer;
+}
+/* ホバー時のエフェクト */
+.floating-action-button:hover {
+  transform: scale(1.1); /* 少し大きくする */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* 影を濃くする */
+}
+/* クリック時のエフェクト */
+.floating-action-button:active {
+  transform: scale(0.95); /* 少し小さくする */
+}
+/* アイコンのスタイル */
+.floating-action-button i {
+  color: #fff;
+}
+ /* 短冊のコンテナ */
+ .tanzaku-container {
+   display: flex;
+   gap: 40px;
+   padding: 0 20px;
+   flex-wrap: wrap;
+}
+/* 短冊本体 */
+.tanzaku {
+   min-width: 120px;
+   height: 350px;
+   background: linear-gradient(to bottom, #f5f5dc 0%, #e8e8d0 100%); /*ちょっとグラデ*/
+   border-radius: 5px 5px 0 0;
+   box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+   padding: 30px 20px;
+   position: relative;
+   /* 短冊の質感を出す */
+   border: 1px solid #d4d4c0;
+   writing-mode: vertical-rl; /*縦書き*/
+   text-orientation: upright; /*文字の向きを縦に矯正*/
+}
+/* 短冊の上部に穴を追加（紐を通す部分） */
+.tanzaku::before {
+   content: '';
+   position: absolute;
+   top: 10px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 8px;
+   height: 8px;
+   background: #fff;
+   border: 2px solid #999;
+   border-radius: 50%;
+   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+/*ホバーの動き*/
+.tanzaku:hover {
+   transform: translateY(-5px);
+   box-shadow: 
+      0 8px 12px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+   transition: all 0.3s ease;
+}
+/* 縦書きテキスト */
+.tanzaku-text {
+   writing-mode: vertical-rl; /*縦書き*/
+   text-orientation: upright; /*文字の向きを縦に矯正*/
+   font-size: 18px;
+   line-height: 2.3;
+   color: #333;
+   margin: 10px auto 0; /* 左右中央配置 */
+   height: 70%;
+}
+ /* ーーーーー_formーーーーー */ 
+ .tanzaku-content{
+   /*短冊の形、中身のレイアウト*/
+   min-width: 120px;
+   height: 350px;
+   background: linear-gradient(to bottom, #f5f5dc 0%, #e8e8d0 100%); /*ちょっとグラデ*/
+   border-radius: 5px 5px 0 0;
+   box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+   padding: 30px 20px;
+   border: 1px solid #d4d4c0;
+    /*縦書き調整*/
+   writing-mode: vertical-rl; /*縦書き*/
+   text-orientation: upright; /*文字の向きを縦に矯正*/
+   /*表示位置調整*/
+   margin: 0 auto;
+ }
+ .tanzaku-content::before{
+   content: '';
+   position: absolute;
+   top: 30%;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 8px;
+   height: 8px;
+   background: #fff;
+   border: 2px solid #999;
+   border-radius: 50%;
+   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+ }
+ .tanzaku-line{
+   margin:0 20px;
+ }
+ .tanzaku-label{
+   margin:20px 0;
+ }
+ .tanzaku-input{
+   border-left: 1px solid #d4a373;
+   height: 70%;
+   font-size: 18px;
+ }
+ .tanzaku-input p{
+   margin:0;
  }

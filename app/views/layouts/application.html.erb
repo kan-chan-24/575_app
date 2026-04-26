@@ -7,19 +7,22 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <!--googleフォント-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
+
   </head>
 
   <body>
     <header>
-      <h1>575</h1>
-      <nav>
-        <ul>
-          <%= link_to "トップページ", "/" %>
-          <%= link_to "ログイン", "/" %>
-          <%= link_to "一覧", posts_path %>
-          <%= link_to "新規投稿", new_post_path %>
-        </ul>
-      </nav>
+      <%= link_to "/", class: "site-title-link" do %>
+        <h1>みんなの五七五録</h1>
+      <% end %>
+      <%= link_to "/", class: "login-link" do %>
+        <h2>ログイン</h2>
+      <% end %>
     </header>
     <% if notice %>
       <div class="alert alert-success"><%= notice %></div>

@@ -1,10 +1,14 @@
-<h1>編集</h1>
+<h1>詠みなおす</h1>
 
 <%= render "form", post: @post %>
 
 <br>
 
-<div>
-  <%= link_to "詳細", @post %> |
-  <%= link_to "一覧", posts_path %>
-</div>
+<!-- 一覧ボタン（フローティングアクションボタン） -->
+<%= link_to posts_path, class: "floating-action-button" do %>
+    <i class="bi bi-plus-lg">一覧</i>
+<% end %>
+<!-- 詳細ボタン（フローティングアクションボタン） -->
+<%= link_to @post, class: "floating-action-button",style:"right: 120px" do %>
+    <i class="bi bi-plus-lg">戻る</i>
+<% end %>

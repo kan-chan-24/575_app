@@ -1,3 +1,10 @@
-<h1>新規作成</h1>
+<h1>一句読む</h1>
 
-<%= render "form", post: @post %>
+<!-- 一覧ボタン（フローティングアクションボタン） -->
+<%= link_to posts_path, class: "floating-action-button" do %>
+    <i class="bi bi-plus-lg">一覧</i>
+<% end %>
+
+<div class="tanzaku-wrapper">
+    <%= render "form", post: @post %>
+</div>
