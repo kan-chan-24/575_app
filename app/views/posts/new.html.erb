@@ -1,8 +1,10 @@
 <h1>一句読む</h1>
 
-<!-- 新規投稿ボタン（フローティングアクションボタン） -->
+<!-- 一覧ボタン（フローティングアクションボタン） -->
 <%= link_to posts_path, class: "floating-action-button" do %>
     <i class="bi bi-plus-lg">一覧</i>
 <% end %>
 
-<%= render "form", post: @post %>
+<div class="tanzaku-wrapper">
+    <%= render "form", post: @post %>
+</div>

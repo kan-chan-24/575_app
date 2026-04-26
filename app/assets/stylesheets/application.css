@@ -13,7 +13,26 @@ ul li{
    list-style: none;
    padding-left: 0; 
 }
-
+button{
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+   outline: none;
+   padding: 0;
+   appearance: none;
+}
+input {
+	margin: 0;
+	padding: 0;
+	background: none;
+	border: none;
+	border-radius: 0;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+   font-family: "Hina Mincho", serif;
+}
 /* ーーーーーhtml全体ーーーーー */
 html {
    font-family: "Hina Mincho", serif;
@@ -183,3 +202,48 @@ header{
    margin: 10px auto 0; /* 左右中央配置 */
    height: 70%;
 }
+ /* ーーーーー_formーーーーー */ 
+ .tanzaku-content{
+   /*短冊の形、中身のレイアウト*/
+   min-width: 120px;
+   height: 350px;
+   background: linear-gradient(to bottom, #f5f5dc 0%, #e8e8d0 100%); /*ちょっとグラデ*/
+   border-radius: 5px 5px 0 0;
+   box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+   padding: 30px 20px;
+   border: 1px solid #d4d4c0;
+    /*縦書き調整*/
+   writing-mode: vertical-rl; /*縦書き*/
+   text-orientation: upright; /*文字の向きを縦に矯正*/
+   /*表示位置調整*/
+   margin: 0 auto;
+ }
+ .tanzaku-content::before{
+   content: '';
+   position: absolute;
+   top: 30%;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 8px;
+   height: 8px;
+   background: #fff;
+   border: 2px solid #999;
+   border-radius: 50%;
+   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+ }
+ .tanzaku-line{
+   margin:0 20px;
+ }
+ .tanzaku-label{
+   margin:20px 0;
+ }
+ .tanzaku-input{
+   border-left: 1px solid #d4a373;
+   height: 70%;
+   font-size: 18px;
+ }
+ .tanzaku-input p{
+   margin:0;
+ }

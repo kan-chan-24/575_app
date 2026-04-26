@@ -1,4 +1,4 @@
-<%= form_with(model: post) do |form| %>
+<%= form_with(model: post, class: "tanzaku-form") do |form| %>
     <!--エラーメッセージ処理-->
   <% if post.errors.any? %>
     <div style="color: red">
@@ -10,23 +10,23 @@
       </ul>
     </div>
   <% end %>
+  <div class="tanzaku-content">
+    <div class="tanzaku-line">
+      <%= form.label :top, "上の句", class: "tanzaku-label" ,style: "display:inline" %>
+      <%= form.text_field :top, class: "tanzaku-input" %>
+    </div>
 
-  <div class="mb-3">
-    <%= form.label :top, "上の句", class: "form-label" ,style: "display:block" %>
-    <%= form.text_field :top, class: "form-control" %>
+    <div class="tanzaku-line">
+      <%= form.label :middle, "中の句", class: "tanzaku-label" ,style: "display:inline" %>
+      <%= form.text_field :middle, class: "tanzaku-input" %>
+    </div>
+
+    <div class="tanzaku-line">
+      <%= form.label :bottom, "下の句", class: "tanzaku-label" ,style: "display:inline" %>
+      <%= form.text_field :bottom, class: "tanzaku-input" %>
+    </div>
   </div>
-
-  <div class="mb-3">
-    <%= form.label :middle, "中の句", class: "form-label" ,style: "display:block" %>
-    <%= form.text_field :middle, class: "form-control" %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label :bottom, "下の句", class: "form-label" ,style: "display:block" %>
-    <%= form.text_field :bottom, class: "form-control" %>
-  </div>
-
-  <div>
-    <%= form.submit 'これで詠む' ,class: "btn btn-primary"%>
+  <div class="submit-area">
+    <%= form.submit '投稿' ,class: "floating-action-button", style:"left :30px"%>
   </div>
 <% end %>

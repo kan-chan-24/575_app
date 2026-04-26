@@ -4,7 +4,11 @@
 
 <br>
 
-<div>
-  <%= link_to "この句について", @post %> |
-  <%= link_to "みんなの一句", posts_path %>
-</div>
+<!-- 一覧ボタン（フローティングアクションボタン） -->
+<%= link_to posts_path, class: "floating-action-button" do %>
+    <i class="bi bi-plus-lg">一覧</i>
+<% end %>
+<!-- 詳細ボタン（フローティングアクションボタン） -->
+<%= link_to @post, class: "floating-action-button",style:"right: 120px" do %>
+    <i class="bi bi-plus-lg">戻る</i>
+<% end %>

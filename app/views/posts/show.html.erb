@@ -2,9 +2,17 @@
 
 <%= render @post %>
 
-<div>
-  <%= link_to "詠みなおす", edit_post_path(@post) %>
-  <%= link_to "みんなの一句", posts_path %>
+<!-- 一覧ボタン（フローティングアクションボタン） -->
+<%= link_to posts_path, class: "floating-action-button" do %>
+    <i class="bi bi-plus-lg">一覧</i>
+<% end %>
 
-  <%= button_to "句を捨てる", @post, method: :delete %>
-</div>
+<!-- 修正ボタン（フローティングアクションボタン） -->
+<%= link_to edit_post_path(@post), class: "floating-action-button",style:"right: 120px" do %>
+    <i class="bi bi-plus-lg">修正</i>
+<% end %>
+
+<!-- 削除ボタン（フローティングアクションボタン） -->
+<%= button_to @post, method: :delete, class: "floating-action-button", style:"right: 210px" do %>
+    <i class="bi bi-plus-lg">削除</i>
+<% end %>
