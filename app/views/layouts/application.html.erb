@@ -20,9 +20,17 @@
       <%= link_to "/", class: "site-title-link" do %>
         <h1>みんなの五七五録</h1>
       <% end %>
-      <%= link_to "/", class: "login-link" do %>
-        <h2>ログイン</h2>
+      <% if current_user.present? %>
+        <span class="user-name"><%= current_user.name %></span>
+        <%= link_to logout_path, class: "login-logout-link" do %>
+          <h2>ログアウト</h2>
+        <% end %>
+      <% else %>
+        <%= link_to new_login_path, class: "login-logout-link" do %>
+          <h2>ログイン</h2>
+        <% end %>
       <% end %>
+      
     </header>
     <% if notice %>
       <div class="alert alert-success"><%= notice %></div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_04_22_144322) do
+ActiveRecord::Schema[7.0].define(version: 2026_04_26_141231) do
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "top"
     t.string "middle"
@@ -25,6 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_04_22_144322) do
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
 end
