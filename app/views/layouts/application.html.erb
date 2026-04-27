@@ -17,20 +17,20 @@
 
   <body>
     <header>
-      <%= link_to "/", class: "site-title-link" do %>
-        <h1>みんなの五七五録</h1>
-      <% end %>
-      <% if current_user.present? %>
-        <span class="user-name"><%= current_user.name %></span>
-        <%= link_to logout_path, class: "login-logout-link" do %>
-          <h2>ログアウト</h2>
+      <%= link_to "/", class: "site-title-link" do %><h1>みんなの五七五録</h1><% end %>
+      <nav>
+        <% if current_user.present? %>
+          <ul>
+            <li><h2 class="nav-link"><%= current_user.name %></h2></li>
+            <li><%= link_to logout_path, class: "nav-link" do %><h2>ログアウト</h2><% end %></li>
+          </ul>
+          <% else %>
+            <ul>
+              <li><%= link_to users_new_path, class: "nav-link" do %><h2>ユーザー登録</h2><% end %></li>
+              <li><%= link_to new_login_path, class: "nav-link" do %><h2>ログイン</h2><% end %><li>
+            </ul>
         <% end %>
-      <% else %>
-        <%= link_to new_login_path, class: "login-logout-link" do %>
-          <h2>ログイン</h2>
-        <% end %>
-      <% end %>
-      
+      </nav>
     </header>
     <% if notice %>
       <div class="alert alert-success"><%= notice %></div>
