@@ -82,6 +82,9 @@ header{
   cursor: pointer; /* カーソルをポインターに */
   transition: opacity 0.2s ease; /* ホバー時のアニメーション */
 }
+.page-title{
+   margin-left: 20px;
+}
 /* ホバー時のエフェクト */
 .site-title-link:hover {
   opacity: 0.5; /* 少し薄くする */
@@ -98,6 +101,37 @@ nav ul{
    text-decoration: none; /* 下線を消す */
    color: #333; /* リンクの色 */
 }
+ /* ユーザー登録＆ログイン */
+.form-column{
+   height: 300px;
+}
+.form-label{
+   font-size: 24px;
+}
+.form-content{
+   position: relative;
+   top: 5%;
+   border-left: 1px solid #d4a373;
+   height: 90%;
+   font-size: 18px;
+   margin-left: 15px;
+}
+.form-button{
+   font-size:18px;
+
+   display: inline-block;
+   background: linear-gradient(to bottom, #f5f5dc 0%, #e8e8d0 100%); /*ちょっとグラデ*/
+   border-radius: 5px 5px 0 0;
+   box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+   padding: 15px 3px;
+   border: 1px solid #d4d4c0;
+
+   cursor: pointer; /* カーソルをポインターに */
+
+   margin-right: 20px;
+ }
  /* ーーーーーtopーーーーー */
  /* トップページ全体 */
 .intro-container{
