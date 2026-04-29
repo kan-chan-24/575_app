@@ -1,17 +1,26 @@
 <h1 class="page-title">みんなの一句</h1>
-<!-- 新規投稿ボタン（フローティングアクションボタン） -->
-<%= link_to new_post_path, class: "floating-action-button" do %>
-    <i class="bi bi-plus-lg">詠む</i>
-<% end %>
+
+<!-- ログインしていたら、ボタン表示 -->
+<% if current_user.present? %>
+    <!-- 新規投稿ボタン（フローティングアクションボタン） -->
+    <%= link_to new_post_path, class: "floating-action-button" do %>
+        <i class="bi bi-plus-lg">詠む</i>
+    <% end %>
+<% end%>
+
 <% if @posts.present? %>
     <div class="tanzaku-container">
         <% @posts.each do |post| %>
             <%= link_to post, class: "tanzaku-link" do %>
                 <div class="tanzaku">
                     <div class="tanzaku-text">
-                        <p><%= post.top %></p>
-                        <p><%= post.middle %></p>
-                        <p><%= post.bottom %></p>
+                        <p class="top"><%= post.top %></p>
+                        <p class="middle"><%= post.middle %></p>
+                        <p class="bottom"><%= post.bottom %></p>
+                    </div>
+                    <div class="post-meta text-muted">
+                        <small class="tanzaku-days"><%= post.updated_at.strftime('%Y年%m月%d日') %></small>
+                        <small class="tanzaku-name"><%= post.user.name %></small>
                     </div>
                 </div>
             <% end %>

@@ -203,6 +203,7 @@ nav ul{
 }
 /* 短冊本体 */
 .tanzaku {
+   position:relative;
    min-width: 120px;
    height: 350px;
    background: linear-gradient(to bottom, #f5f5dc 0%, #e8e8d0 100%); /*ちょっとグラデ*/
@@ -249,6 +250,24 @@ nav ul{
    margin: 10px auto 0; /* 左右中央配置 */
    height: 70%;
 }
+.tanzaku-text .top{
+   margin-top: 0%;
+}
+.tanzaku-text .middle{
+   margin-top: 15%;
+}
+.tanzaku-text .bottom{
+   margin-top: 30%;
+}
+.tanzaku-days{
+   display: inline;
+   margin-top: 10%;
+}
+.tanzaku-name{
+   display: inline;
+  /* margin-top: 70%;
+  font-style: italic; */
+}
  /* ーーーーー_formーーーーー */ 
  .tanzaku-content{
    /*短冊の形、中身のレイアウト*/
@@ -265,12 +284,13 @@ nav ul{
    writing-mode: vertical-rl; /*縦書き*/
    text-orientation: upright; /*文字の向きを縦に矯正*/
    /*表示位置調整*/
+   position: relative;
    margin: 0 auto;
  }
  .tanzaku-content::before{
    content: '';
    position: absolute;
-   top: 30%;
+   top: 10px;
    left: 50%;
    transform: translateX(-50%);
    width: 8px;
