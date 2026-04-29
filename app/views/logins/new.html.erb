@@ -1,0 +1,22 @@
+<h1 class="page-title">ログイン</h1>
+
+<% if notice %>
+    <div class="alert alert-success"><%= notice %></div>
+<% end %>
+
+<%= form_with(url: login_path) do |form| %>
+  <div class="intro-container">
+    <div class="form-column">
+      <%= form.label :name, '名前', class: "form-label" , style: "display: block" %>
+      <%= form.text_field :name, class: "form-content" , value: params[:name] %>
+    </div>
+
+    <div class="form-column">
+      <%= form.label :password, 'パスワード', class: "form-label" , style: "display: block" %>
+      <%= form.password_field :password , class: "form-content" %>
+    </div>
+
+    <!-- 4/27 ここから始めるよ！ ユーザー登録＆ログインの確定アイコン調整！ -->
+    <%= form.submit 'ログイン', class: 'form-button' %>
+  </div>
+<% end %>

@@ -1,4 +1,4 @@
-<h1>この句について</h1>
+<h1 class="page-title">この句について</h1>
 
 <%= render @post %>
 
@@ -7,12 +7,15 @@
     <i class="bi bi-plus-lg">一覧</i>
 <% end %>
 
-<!-- 修正ボタン（フローティングアクションボタン） -->
-<%= link_to edit_post_path(@post), class: "floating-action-button",style:"right: 120px" do %>
-    <i class="bi bi-plus-lg">修正</i>
-<% end %>
+<!-- ログインユーザーidと投稿の投稿主idが一致している場合 -->
+<% if @post.user_id == current_user&.id %>
+    <!-- 修正ボタン（フローティングアクションボタン） -->
+    <%= link_to edit_post_path(@post), class: "floating-action-button",style:"right: 120px" do %>
+        <i class="bi bi-plus-lg">修正</i>
+    <% end %>
 
-<!-- 削除ボタン（フローティングアクションボタン） -->
-<%= button_to @post, method: :delete, class: "floating-action-button", style:"right: 210px" do %>
-    <i class="bi bi-plus-lg">削除</i>
+    <!-- 削除ボタン（フローティングアクションボタン） -->
+    <%= button_to @post, method: :delete, class: "floating-action-button", style:"right: 210px" do %>
+        <i class="bi bi-plus-lg">削除</i>
+    <% end %>
 <% end %>

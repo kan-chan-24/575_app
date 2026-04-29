@@ -20,6 +20,7 @@ button{
    outline: none;
    padding: 0;
    appearance: none;
+   font-family: "Hina Mincho", serif;
 }
 input {
 	margin: 0;
@@ -32,6 +33,10 @@ input {
 	-moz-appearance: none;
 	appearance: none;
    font-family: "Hina Mincho", serif;
+}
+.site-title-link h1{
+   margin:0;
+   font-weight: 700;
 }
 /* ーーーーーhtml全体ーーーーー */
 html {
@@ -56,6 +61,7 @@ body {
    background-repeat: no-repeat; /* 繰り返しなし */
    background-attachment: fixed; /* スクロールしても固定 */
 }
+/* ーーーーーheader部分ーーーーー */
 header{
    display: flex; /* Flexboxを使用 */
    justify-content: space-between; /* 左右に要素を配置 */
@@ -76,15 +82,56 @@ header{
   cursor: pointer; /* カーソルをポインターに */
   transition: opacity 0.2s ease; /* ホバー時のアニメーション */
 }
+.page-title{
+   margin-left: 20px;
+}
 /* ホバー時のエフェクト */
 .site-title-link:hover {
   opacity: 0.5; /* 少し薄くする */
 }
 /* ログインのリンク */
-.login-link{
+nav ul{
+   display: flex;
+   gap: 1.5rem;
+   align-items: center;
+   margin: 0;
+   padding: 0;
+}
+.nav-link{
    text-decoration: none; /* 下線を消す */
    color: #333; /* リンクの色 */
 }
+ /* ユーザー登録＆ログイン */
+.form-column{
+   height: 300px;
+}
+.form-label{
+   font-size: 24px;
+}
+.form-content{
+   position: relative;
+   top: 5%;
+   border-left: 1px solid #d4a373;
+   height: 90%;
+   font-size: 18px;
+   margin-left: 15px;
+}
+.form-button{
+   font-size:18px;
+
+   display: inline-block;
+   background: linear-gradient(to bottom, #f5f5dc 0%, #e8e8d0 100%); /*ちょっとグラデ*/
+   border-radius: 5px 5px 0 0;
+   box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+   padding: 15px 3px;
+   border: 1px solid #d4d4c0;
+
+   cursor: pointer; /* カーソルをポインターに */
+
+   margin-right: 20px;
+ }
  /* ーーーーーtopーーーーー */
  /* トップページ全体 */
 .intro-container{
@@ -156,6 +203,7 @@ header{
 }
 /* 短冊本体 */
 .tanzaku {
+   position:relative;
    min-width: 120px;
    height: 350px;
    background: linear-gradient(to bottom, #f5f5dc 0%, #e8e8d0 100%); /*ちょっとグラデ*/
@@ -202,6 +250,24 @@ header{
    margin: 10px auto 0; /* 左右中央配置 */
    height: 70%;
 }
+.tanzaku-text .top{
+   margin-top: 0%;
+}
+.tanzaku-text .middle{
+   margin-top: 15%;
+}
+.tanzaku-text .bottom{
+   margin-top: 30%;
+}
+.tanzaku-days{
+   display: inline;
+   margin-top: 10%;
+}
+.tanzaku-name{
+   display: inline;
+  /* margin-top: 70%;
+  font-style: italic; */
+}
  /* ーーーーー_formーーーーー */ 
  .tanzaku-content{
    /*短冊の形、中身のレイアウト*/
@@ -218,12 +284,13 @@ header{
    writing-mode: vertical-rl; /*縦書き*/
    text-orientation: upright; /*文字の向きを縦に矯正*/
    /*表示位置調整*/
+   position: relative;
    margin: 0 auto;
  }
  .tanzaku-content::before{
    content: '';
    position: absolute;
-   top: 30%;
+   top: 10px;
    left: 50%;
    transform: translateX(-50%);
    width: 8px;

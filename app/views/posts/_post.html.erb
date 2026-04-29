@@ -21,6 +21,7 @@
     </div>
   </div>
   <div class="post-meta text-muted">
-    <small>投稿日時: <%= post.created_at.strftime('%Y年%m月%d日 %H:%M') %></small>
+    <small class="tanzaku-days"><%= post.updated_at.strftime('%Y年%m月%d日') %></small>
+    <small class="tanzaku-name"><%= post.user.name %></small>
   </div>
 </div>
