@@ -1,11 +1,15 @@
+<div class="Caution">
+  <h4>ひらがな・カタカナ・数字（全角半角OK）のみ、お使いください</h4>
+  <h4>字余り・字足らずともに、1音までOKです</h4>
+</div>
+
 <%= form_with(model: post, class: "tanzaku-form") do |form| %>
     <!--エラーメッセージ処理-->
   <% if post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <div class="error-messages">
       <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
