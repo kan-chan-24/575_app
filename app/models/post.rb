@@ -51,14 +51,13 @@ class Post < ApplicationRecord
       # 小文字（拗音・促音）は前の文字と合わせて1音なのでスキップ
       next if char =~ /[ぁぃぅぇぉゃゅょゎっ]/
       
-      # 長音記号も前の文字と合わせて1音なのでスキップ
-      next if char == 'ー' && index > 0
-      
       # ひらがな・カタカナは1音としてカウント
       if char =~ /[ぁ-ん]/
         count += 1
       # 数字（半角・全角）も1音としてカウント
       elsif char =~ /[0-9０-９]/
+        count += 1
+      elsif char =~ /[ー]/
         count += 1
       end
     end
