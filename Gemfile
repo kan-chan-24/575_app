@@ -33,6 +33,9 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Use SCSS for stylesheets
+gem "sassc-rails"  # ← この行を追加
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
