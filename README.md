@@ -1,24 +1,47 @@
-# README
+アプリ概要
+五七五のみで想いや考えを表現する呟きアプリです。
+川柳や俳句ほどの細かなルールもありません。
+日本人なら誰しもふれた事のある17音に
+日々の出来事を詰め込む不自由さを楽しんでもらえたら幸いです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+公開URL：https://gositigo-roku-0016fb26bdad.herokuapp.com/
 
-Things you may want to cover:
+ミニアプリを作成した理由
+入門編までのカリキュラムを修了し、そこまでで学んだ内容を踏まえたミニアプリを作成することで
+実践的な復習を行いたかった事が、制作のきっかけです。
 
-* Ruby version
+制作内容は、学んだ内容から発展させました。
+CRUD機能とログイン機能のみで作れるもの、かつ見て触って楽しめるものと考え、
+ツイッター風アプリに１アイデアを組み合わせる形で制作を始めました。
 
-* System dependencies
+技術スタック
+フロントエンド
+HTML/CSS
+バックエンド
+Ruby on Rails
+開発環境
+Visual Studio Code
+Docker
+インフラ
+Git / GitHub
+デプロイ
+heroku
+今後の改善ポイント
+UI改善
 
-* Configuration
+レイアウトのスマホ対応
+投稿一覧時に解説/写真の有無が一目でわかるアイコンの実装
+投稿にユーザーアイコン/いいね数/コメント数の表示
 
-* Database creation
+機能拡張
 
-* Database initialization
+ユーザープロフィール編集ページの追加
+新規投稿作成時の画像添付機能追加
+投稿へのいいね/コメント機能追加
+新規投稿時にXへのシェア機能
+機能改善
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+記入した解説コメントから逆算し、五七五を提案してくれるAI導入
+開発内容の改善
+コードの可読性・保守性の向上のための修正（共通化コードの責任範囲の明確化）
+html/cssの役割整理
