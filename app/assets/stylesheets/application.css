@@ -38,6 +38,19 @@ input {
    margin:0;
    font-weight: 700;
 }
+textarea{
+   border: none;        /* 枠線を消す */
+   outline: none;       /* フォーカス時の青い枠を消す */
+   background: transparent; /* 背景色を透明に */
+   resize: none;        /* 右下のサイズ変更ボタンを消す */
+   padding: 0;          /* 余白を消す */
+   box-shadow: none;    /* 影を消す */
+   font-family: "Hina Mincho", serif;
+}
+h4{
+   margin: 0;
+   padding: 0;
+}
 /* ーーーーーhtml全体ーーーーー */
 html {
    font-family: "Hina Mincho", serif;
@@ -269,6 +282,10 @@ nav ul{
   font-style: italic; */
 }
  /* ーーーーー_formーーーーー */ 
+ .input-area{
+   display: flex;
+   position: relative;
+ }
  .tanzaku-content{
    /*短冊の形、中身のレイアウト*/
    min-width: 120px;
@@ -321,7 +338,7 @@ nav ul{
    color: red;
    position: fixed;
    top: 20%;
-   left: 30%;
+   right: 70%;
    z-index: 1000;
    writing-mode: vertical-rl; /*縦書き*/
    text-orientation: upright; /*文字の向きを縦に矯正*/
@@ -338,4 +355,30 @@ nav ul{
 .form-caution{
    writing-mode: vertical-rl; /*縦書き*/
    text-orientation: upright; /*文字の向きを縦に矯正*/
+}
+.guide-comment{
+   position: absolute;
+   font-size: 14px;
+   z-index:1000;
+   top: 10%;
+   right: 60%;
+   min-height: 80%;
+   padding: 5px;
+
+   writing-mode: vertical-rl; /*縦書き*/
+   text-orientation: upright; /*文字の向きを縦に矯正*/
+   vertical-align: top;
+
+   background-color: white;
+   border-radius: 5%;
+   box-shadow: inset 0 0 20px 10px rgba(255, 255, 255, 0.5); 
+}
+.guide-label{
+   display: flex;
+}
+.submit-area{
+   display: flex;
+}
+.guide-input{
+   margin-top: 5%;
 }

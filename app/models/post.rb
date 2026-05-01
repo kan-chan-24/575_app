@@ -5,6 +5,9 @@ class Post < ApplicationRecord
   # 存在チェック
   validates :top, :middle, :bottom, presence: true
 
+  # 解説コメントの文字数制限
+  validates :guide, length: { maximum: 50 }
+
   # 音数チェック
   validate :validate_syllable_counts
 

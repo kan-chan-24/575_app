@@ -14,22 +14,29 @@
       </ul>
     </div>
   <% end %>
-  <div class="tanzaku-content">
-    <div class="tanzaku-line">
-      <%= form.label :top, "上の句", class: "tanzaku-label" ,style: "display:inline" %>
-      <%= form.text_field :top, class: "tanzaku-input" %>
-    </div>
+  <div class="input-area">
+    <div class="tanzaku-content">
+      <div class="tanzaku-line">
+        <%= form.label :top, "上の句", class: "tanzaku-label" ,style: "display:inline" %>
+        <%= form.text_field :top, class: "tanzaku-input" %>
+      </div>
 
-    <div class="tanzaku-line">
-      <%= form.label :middle, "中の句", class: "tanzaku-label" ,style: "display:inline" %>
-      <%= form.text_field :middle, class: "tanzaku-input" %>
-    </div>
+      <div class="tanzaku-line">
+        <%= form.label :middle, "中の句", class: "tanzaku-label" ,style: "display:inline" %>
+        <%= form.text_field :middle, class: "tanzaku-input" %>
+      </div>
 
-    <div class="tanzaku-line">
-      <%= form.label :bottom, "下の句", class: "tanzaku-label" ,style: "display:inline" %>
-      <%= form.text_field :bottom, class: "tanzaku-input" %>
+      <div class="tanzaku-line">
+        <%= form.label :bottom, "下の句", class: "tanzaku-label" ,style: "display:inline" %>
+        <%= form.text_field :bottom, class: "tanzaku-input" %>
+      </div>
+    </div>
+    <div class="guide-comment">
+      <%= form.label :guide, "解説", class: "guide-label" %>
+      <%= form.text_area :guide, class: "guide-input", rows: 4, cols: 50 , maxlength: 50 ,placeholder: "この投稿の解説を50字以内で入力できます" %>
     </div>
   </div>
+
   <div class="submit-area">
     <%= form.submit '投稿' ,class: "floating-action-button", style:"left :30px"%>
   </div>
