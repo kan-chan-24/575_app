@@ -26,8 +26,10 @@
       <small class="tanzaku-name"><%= post.user.name %></small>
     </div>
   </div>
-  <div class="guide-comment">
-    <h4>解説</h4>
-    <div style="margin-top: 5%"><%= simple_format(post.guide) %></div>
-  </div>
+  <% if post.guide.present? %>
+    <div class="guide-comment">
+      <h4>解説</h4>
+      <div style="margin-top: 5%"><%= simple_format(post.guide) %></div>
+    </div>
+  <% end %>
 </div>
