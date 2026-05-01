@@ -67,7 +67,7 @@ body {
    background: 
    linear-gradient(to top, rgb(255, 255, 255, 0.3) 0%, 
    rgba(250, 250, 250, 0.5) 100%),
-   url('/assets/background.jpg');  /* 背景画像指定 */
+   image-url('background.jpg');  /* 背景画像指定 */
 
    background-size: cover; /* 画面いっぱいに表示 */
    background-position: center; /* 中央配置 */
