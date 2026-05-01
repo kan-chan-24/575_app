@@ -314,3 +314,28 @@ nav ul{
  .tanzaku-input p{
    margin:0;
  }
+ .field_with_errors{
+   display: inline;
+ }
+ .error-messages{
+   color: red;
+   position: fixed;
+   top: 20%;
+   left: 30%;
+   z-index: 1000;
+   writing-mode: vertical-rl; /*縦書き*/
+   text-orientation: upright; /*文字の向きを縦に矯正*/
+ }
+.Caution{
+   position: fixed;
+   top: 20%;
+   right: 30%;
+   z-index: 1000;
+
+   writing-mode: vertical-rl; /*縦書き*/
+   text-orientation: upright; /*文字の向きを縦に矯正*/
+}
+.form-caution{
+   writing-mode: vertical-rl; /*縦書き*/
+   text-orientation: upright; /*文字の向きを縦に矯正*/
+}

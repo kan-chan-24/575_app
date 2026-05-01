@@ -1,17 +1,17 @@
 <%= form_with(model: user) do |form| %>
   <% if user.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <div class="error-messages" style="left: 25%">
         <ul>
-          <% user.errors.each do |error| %>
-            <li><%= error.full_message %></li>
+          <% user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
           <% end %>
         </ul>
       </div>
   <% end %>
   <div class="intro-container">
     <div class="form-column">
-      <%= form.label :name, '名前', class: "form-label" , style: "display: block" %>
+      <%= form.label :name, '名前', class: "form-label" , style: "display: inline" %>
+      <small class="form-caution">（10字以内）</small>
       <%= form.text_field :name , class: "form-content" %>
     </div>
 
@@ -21,7 +21,8 @@
     </div>
 
     <div class="form-column">
-      <%= form.label :password, 'パスワード' , class: "form-label" , style: "display: block" %>
+      <%= form.label :password, 'パスワード' , class: "form-label" , style: "display: inline" %>
+      <small class="form-caution">（8字以上12字以内）</small>
       <%= form.password_field :password , class: "form-content" %>
     </div>
 

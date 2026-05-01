@@ -1,0 +1,38 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+      user: ユーザー
+    attributes:
+      post:
+        top: 上の句
+        middle: 中の句
+        bottom: 下の句
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+    errors:
+      models:
+        post:
+          attributes:
+            top:
+              blank: を入力してください
+            middle:
+              blank: を入力してください
+            bottom:
+              blank: を入力してください
+        user:
+          attributes:
+            name:
+              blank: を入力してください
+              too_long: は10文字以内で入力してください
+            password:
+              blank: を入力してください
+              too_short: は8文字以上で入力してください
+              too_long: は12文字以下で入力してください
+            email:
+              blank: を入力してください
+            password_confirmation:
+              confirmation: とパスワードの入力が一致しません

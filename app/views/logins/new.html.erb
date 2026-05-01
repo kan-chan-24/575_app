@@ -3,6 +3,9 @@
 <% if notice %>
     <div class="alert alert-success"><%= notice %></div>
 <% end %>
+<% if alert %>
+  <div class="error-messages" style="left: 30%"><%= alert %></div>
+<% end %>
 
 <%= form_with(url: login_path) do |form| %>
   <div class="intro-container">
