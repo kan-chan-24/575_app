@@ -1,6 +1,19 @@
 class Post < ApplicationRecord
   # userモデルとの関連付け
   belongs_to :user
+  has_many :likes, dependent: :destroy
+  # このpost（投稿）をいいねしたuser（ユーザー）の一覧を取得するメソッド
+  has_many :liked_users, through: :likes, source: :user
+
+  # いいね数を取得するメソッド
+  def likes_count
+    likes.count
+  end
+
+  # 特定のユーザーがいいねしているか確認するメソッド
+  def liked_by?(user)
+    likes.exists?(user_id: user.id)
+  end
 
   # 存在チェック
   validates :top, :middle, :bottom, presence: true

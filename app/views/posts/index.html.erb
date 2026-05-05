@@ -11,8 +11,9 @@
 <% if @posts.present? %>
     <div class="tanzaku-container">
         <% @posts.each do |post| %>
-            <%= link_to post, class: "tanzaku-link" do %>
-                <div class="tanzaku">
+        <div class="tanzaku-space">
+            <div class="tanzaku">
+                <%= link_to post, class: "tanzaku-link" do %>
                     <div class="tanzaku-text">
                         <p class="top"><%= post.top %></p>
                         <p class="middle"><%= post.middle %></p>
@@ -22,8 +23,22 @@
                         <small class="tanzaku-days"><%= post.updated_at.strftime('%Y年%m月%d日') %></small>
                         <small class="tanzaku-name"><%= post.user.name %></small>
                     </div>
+                <% end %>
+                <!-- いいね機能 -->
+                <div class="like-section">
+                <% if current_user %>
+                    <% if post.liked_by?(current_user) %>
+                    <%= button_to 'よきかな', post_like_path(post), method: :delete, class: 'liked-button' %>
+                    <% else %>
+                    <%= button_to 'よきかな', post_like_path(post), method: :post, class: 'like-button' %>
+                    <% end %>
+                <% else %>
+                    <small class="like-button">よきかな</small>
+                <% end %>
+                <%= post.likes_count %>
                 </div>
-            <% end %>
+            </div>
+        </div>
         <% end %>
     </div>
 <% else %>
