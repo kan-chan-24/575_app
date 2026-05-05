@@ -214,6 +214,9 @@ nav ul{
    padding: 0 20px;
    flex-wrap: wrap;
 }
+.tanzaku-space{
+   position: relative;
+}
 /* 短冊本体 */
 .tanzaku {
    position:relative;
@@ -253,6 +256,10 @@ nav ul{
       inset 0 1px 0 rgba(255, 255, 255, 0.5);
    transition: all 0.3s ease;
 }
+/*短冊のリンクのサイズ*/
+.tanzaku-link{
+   height: 90%;/*親に対して90%の高さのサイズ*/
+}
 /* 縦書きテキスト */
 .tanzaku-text {
    writing-mode: vertical-rl; /*縦書き*/
@@ -280,6 +287,33 @@ nav ul{
    display: inline;
   /* margin-top: 70%;
   font-style: italic; */
+}
+.like-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+  position: absolute;
+  bottom: 4%;
+  right: 10%;
+}
+
+.like-button {
+  background-color: #ff4757;
+  color: white;
+  border: none;
+  padding: 5px 7px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.liked-button {
+  background-color: #dfe6e9;
+  color: #2d3436;
+  border: none;
+  padding: 5px 7px;
+  border-radius: 5px;
+  cursor: pointer;
 }
  /* ーーーーー_formーーーーー */ 
  .input-area{
