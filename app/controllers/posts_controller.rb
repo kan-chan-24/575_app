@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, notice: '投稿が作成されました'
     else
-      render :new  # 保存失敗時は new ビューを再表示
+      render :new , status: :unprocessable_entity  # 保存失敗時は new ビューを再表示
     end
   end
 

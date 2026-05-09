@@ -27,6 +27,12 @@ class Post < ApplicationRecord
   # 文字種チェック（追加）
   validate :validate_character_types
 
+  def morae_count(field)
+    value = send(field)
+    return 0 if value.blank?
+    count_morae(value)
+  end
+
   private
 
   # 音数バリデーション用メソッド
@@ -49,7 +55,7 @@ class Post < ApplicationRecord
     count = count_morae(value)
     
     if count < min
-      errors.add(field, "は#{min}音以上で入力してください（現在#{count}音）")
+      errors.add(field, "は#{min}音以上で入力してください（現在#{count}音）") 
     elsif count > max
       errors.add(field, "は#{max}音以内で入力してください（現在#{count}音）")
     end
@@ -64,8 +70,8 @@ class Post < ApplicationRecord
     chars = normalized_text.chars
     
     chars.each_with_index do |char, index|
-      # 小文字（拗音・促音）は前の文字と合わせて1音なのでスキップ
-      next if char =~ /[ぁぃぅぇぉゃゅょゎっ]/
+      # 小文字（拗音・促音）は前の文字と合わせて1音なのでスキップ（"っ"は一音）
+      next if char =~ /[ぁぃぅぇぉゃゅょゎ、。]/
       
       # ひらがな・カタカナは1音としてカウント
       if char =~ /[ぁ-ん]/
@@ -73,6 +79,7 @@ class Post < ApplicationRecord
       # 数字（半角・全角）も1音としてカウント
       elsif char =~ /[0-9０-９]/
         count += 1
+      # 長音も1音としてカウント  
       elsif char =~ /[ー]/
         count += 1
       end
@@ -94,7 +101,7 @@ class Post < ApplicationRecord
     return if value.blank? # presence バリデーションに任せる
     
     # ひらがな・カタカナ・長音記号以外が含まれているかチェック
-    unless value.match?(/\A[ぁ-んァ-ンー0-9０-９]+\z/)
+    unless value.match?(/\A[ぁ-んァ-ンー0-9０-９、。]+\z/)
       errors.add(field, "でひらがな、カタカナ、数字以外が使用されています")
     end
   end
