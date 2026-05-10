@@ -107,4 +107,7 @@ Rails.application.configure do
 
   # アセットホストの設定（Heroku用）
   config.asset_host = ENV['ASSET_HOST'] if ENV['ASSET_HOST'].present?
+
+  # アセットのプリコンパイル対象を明示的に指定
+  config.assets.precompile += %w[application.js]
 end
