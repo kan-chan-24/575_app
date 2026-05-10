@@ -20,9 +20,3 @@ RUN bundle install
 COPY . $APP
 
 CMD ["bin/dev"]
-
-# アプリケーションコードをコピー
-COPY . .
-
-# 本番環境用のアセットプリコンパイル
-RUN bundle exec rails assets:precompile RAILS_ENV=production

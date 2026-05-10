@@ -22,14 +22,13 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.public_file_server.enabled = true
+  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
-  config.assets.digest = true
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = "http://assets.example.com"
@@ -91,20 +90,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  # 静的ファイルの提供を有効化
-  config.public_file_server.enabled = true
-
-  # importmapのプリコンパイル対象に追加
-  config.assets.paths << Rails.root.join('app/javascript')
-  config.assets.paths << Rails.root.join('app/javascript/controllers')
-
-  # アセットのプリコンパイル対象を明示的に指定
-  config.assets.precompile += %w[
-    controllers/*.js
-    controllers/**/*.js
-  ]
-
-  # アセットホストの設定（Heroku用）
-  config.asset_host = ENV['ASSET_HOST'] if ENV['ASSET_HOST'].present?
 end
