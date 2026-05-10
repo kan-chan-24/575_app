@@ -92,10 +92,19 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # 静的ファイルの提供を有効化（必要に応じて）
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || true
+  # 静的ファイルの提供を有効化
+  config.public_file_server.enabled = true
 
   # importmapのプリコンパイル対象に追加
   config.assets.paths << Rails.root.join('app/javascript')
+  config.assets.paths << Rails.root.join('app/javascript/controllers')
 
+  # アセットのプリコンパイル対象を明示的に指定
+  config.assets.precompile += %w[
+    controllers/*.js
+    controllers/**/*.js
+  ]
+
+  # アセットホストの設定（Heroku用）
+  config.asset_host = ENV['ASSET_HOST'] if ENV['ASSET_HOST'].present?
 end
