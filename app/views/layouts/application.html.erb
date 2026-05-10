@@ -13,11 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
 
-    <!-- importmap_tags をコメントアウトまたは削除 -->
-    <!-- <%= javascript_importmap_tags %> -->
-    <!-- 代わりに javascript_include_tag を使用 -->
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
