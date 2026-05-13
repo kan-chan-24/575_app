@@ -38,17 +38,17 @@ class Post < ApplicationRecord
   # 音数バリデーション用メソッド
   def validate_syllable_counts
     # 上の句：5音（字余り1音、字足らず4音まで可）
-    validate_syllable_count(:top, 5, min: 4, max: 6)
+    validate_syllable_count(:top, min: 4, max: 6)
     
     # 中の句：7音（字余り8音、字足らず6音まで可）
-    validate_syllable_count(:middle, 7, min: 6, max: 8)
+    validate_syllable_count(:middle, min: 6, max: 8)
     
     # 下の句：5音（字余り1音、字足らず4音まで可）
-    validate_syllable_count(:bottom, 5, min: 4, max: 6)
+    validate_syllable_count(:bottom, min: 4, max: 6)
   end
 
   # 音数違反にエラーを出すメソッド
-  def validate_syllable_count(field, standard, min:, max:)
+  def validate_syllable_count(field, min:, max:)
     value = send(field)
     return if value.blank? # presence バリデーションに任せる（未記載チェック）
     
@@ -69,7 +69,8 @@ class Post < ApplicationRecord
     count = 0
     chars = normalized_text.chars
     
-    chars.each_with_index do |char, index|
+    # 文字列をeachで一文字ずつ順番に取り出して判定する
+    chars.each do |char|
       # 小文字（拗音・促音）は前の文字と合わせて1音なのでスキップ（"っ"は一音）
       next if char =~ /[ぁぃぅぇぉゃゅょゎ、。]/
       
@@ -84,7 +85,7 @@ class Post < ApplicationRecord
         count += 1
       end
     end
-    
+    # カウントを返す
     count
   end
 
